@@ -1,0 +1,80 @@
+<div class="container mt-4">
+    <div class="container mt-4" >
+        <h1>Transactions Lists</h1>
+       <table class="table">
+         <thead>    
+         <tr>
+             <th scope="col">ID</th>
+             <th scope="col">Date</th>
+             <th scope="col">Comments</th>
+             <th scope="col">Actions</th>
+           </tr>
+         </thead>
+         <tbody>
+             <tr *ngFor="let transaction of transactionArray">
+             <td>{{transaction.id }}</td>
+             <td>{{transaction.formattedDate }}</td>
+             <td>{{transaction.Comments }}</td>
+             <td>
+               <button type="button" class="btn btn-success" (click)="viewTransaction(transaction)">View</button>
+               <button type="button" class="btn btn-danger" (click)="deleteTransaction(transaction)">Delete</button>            
+             </td>
+           </tr>          
+         </tbody>
+       </table>
+    </div>
+
+    <div class="card">
+        <h1>Register Transaction</h1>
+        <form>
+            <div class="form-group">
+                <label>ID</label>
+                <input type="text" [(ngModel)]="id" [ngModelOptions]="{standalone: true}" class="form-control" id="id" placeholder="Enter ID">
+            </div>
+            <div class="form-group">
+                <label>Date</label>
+                <input type="text" [(ngModel)]="date" [ngModelOptions]="{standalone: true}" class="form-control" id="date" placeholder="Enter date in MM/DD/YYYY">
+            </div>
+            <div class="form-group">
+                <label>Sender First Name</label>
+                <input type="text" [(ngModel)]="senderFirstName" [ngModelOptions]="{standalone: true}" class="form-control" id="sfname" placeholder="Enter sender first name">
+                <label>Sender Last Name</label>
+                <input type="text" [(ngModel)]="senderLastName" [ngModelOptions]="{standalone: true}" class="form-control" id="slname" placeholder="Enter sender last name">
+                <label>Date of birth</label>
+                <input type="text" [(ngModel)]="dateOfBirth" [ngModelOptions]="{standalone: true}" class="form-control" id="dob" placeholder="Enter sender date of birth">
+                <label>ID Number</label>
+                <input type="text" [(ngModel)]="IDNumber" [ngModelOptions]="{standalone: true}" class="form-control" id="idnumber" placeholder="Enter IDNumber">
+            </div>
+            <div class="form-group">
+                <label>Recipient First Name</label>
+                <input type="text" [(ngModel)]="recipientFirstName" [ngModelOptions]="{standalone: true}" class="form-control" id="rfname" placeholder="Enter recipient first name">
+                <label>Recipient Last Name</label>
+                <input type="text" [(ngModel)]="recipientLastName" [ngModelOptions]="{standalone: true}" class="form-control" id="rlname" placeholder="Enter recipient last name">
+                <label>Email</label>
+                <input type="text" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="form-control" id="email" placeholder="Enter email">
+                <label>Account Number</label>
+                <input type="text" [(ngModel)]="accountNumber" [ngModelOptions]="{standalone: true}" class="form-control" id="accountnumber" placeholder="Enter Account number">
+                <label>Bank</label>
+                <input type="text" [(ngModel)]="bank" [ngModelOptions]="{standalone: true}" class="form-control" id="bank" placeholder="Enter bank">
+            </div>
+            <div class="form-group">
+                <label>Amount</label>
+                <input type="text" [(ngModel)]="Amount" [ngModelOptions]="{standalone: true}" class="form-control" id="amount" placeholder="Enter Amount">
+            </div>
+            <div class="form-group">
+                <label>Currency</label>
+                <input type="text" [(ngModel)]="CurrencyCd" [ngModelOptions]="{standalone: true}" class="form-control" id="currencyCd" placeholder="Enter Currency">
+            </div>
+            <div class="form-group">
+                <label>Comments</label>
+                <input type="text" [(ngModel)]="Comments" [ngModelOptions]="{standalone: true}" class="form-control" id="comments" placeholder="Enter Comments">
+            </div>
+            <div class="form-group">
+                <label>status</label>
+                <input type="text" [(ngModel)]="status" [ngModelOptions]="{standalone: true}" class="form-control" id="status" placeholder="Enter Status">
+            </div>
+            <button type="submit" (click)="save()" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    
+</div>
